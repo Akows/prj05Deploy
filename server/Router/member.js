@@ -35,11 +35,11 @@ const { createTokens, validateToken } = require("../JWT");
 
 // DB에 접속하기 위한 정보들을 mysql 모듈을 이용하여 변수에 담아준다.
 const db = mysql.createPool({
-    host: 'localhost',
+    host: 'us-cdbr-east-06.cleardb.net',
     port: '3308',
-    user: 'root',
-    password: '123456',
-    database: 'prj05',
+    user: 'b9c5c815b3d053',
+    password: '9e964c55',
+    database: 'heroku_746ec78e011cc1d',
 });
 
 // json의 사용을 위해서 use 함수를 사용해준다.

@@ -4,12 +4,13 @@ const router = express.Router();
 const mysql = require("mysql");
 
 const db = mysql.createPool({
-    host: "localhost",
+    host: 'us-cdbr-east-06.cleardb.net',
     port: '3308',
-    user: "root",
-    password: "123456",
-    database: "prj05",
+    user: 'b9c5c815b3d053',
+    password: '9e964c55',
+    database: 'heroku_746ec78e011cc1d',
 });
+
 
 router.get("/select", (req, res) => {
     const sqlQuery = `SELECT * 
