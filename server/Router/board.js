@@ -5,7 +5,7 @@ const mysql = require("mysql");
 
 const db = mysql.createPool({
     host: 'us-cdbr-east-06.cleardb.net',
-    port: '3308',
+    port: '3306',
     user: 'b9c5c815b3d053',
     password: '9e964c55',
     database: 'heroku_746ec78e011cc1d',
