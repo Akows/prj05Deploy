@@ -30,9 +30,7 @@ const express = require("express");
 const router = express.Router();
 const mysql = require("mysql");
 
-import bcrypt from 'bcrypt' 
-
-// const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 const cookieParser = require("cookie-parser");
 
