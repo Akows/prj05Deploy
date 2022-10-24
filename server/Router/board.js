@@ -14,7 +14,7 @@ const db = mysql.createPool({
 
 router.get("/select", (req, res) => {
     const sqlQuery = `SELECT * 
-                        FROM prj05.board`;
+                        FROM heroku_746ec78e011cc1d.board`;
 
     db.query(sqlQuery, (error, data) => {
         if (error)
