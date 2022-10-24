@@ -30,7 +30,10 @@ const express = require("express");
 const router = express.Router();
 const mysql = require("mysql");
 
-const bcrypt = require("bcrypt");
+import bcrypt from 'bcrypt' 
+
+// const bcrypt = require("bcrypt");
+
 const cookieParser = require("cookie-parser");
 
 const { createTokens, validateToken } = require("../JWT");
