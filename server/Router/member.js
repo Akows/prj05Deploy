@@ -29,11 +29,8 @@
 const express = require("express");
 const router = express.Router();
 const mysql = require("mysql");
-
 const bcrypt = require("bcryptjs");
-
 const cookieParser = require("cookie-parser");
-
 const { createTokens, validateToken } = require("../JWT");
 
 // DB에 접속하기 위한 정보들을 mysql 모듈을 이용하여 변수에 담아준다.
