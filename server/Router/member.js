@@ -113,34 +113,48 @@ router.post("/login", (req, res) => {
                 // DB에 저장된 비밀번호는 bcrypt에 의해 암호화된 상태로, 단순한 1:1 비교는 불가능하다.
                 // 그렇기에 bcrypt에 내장된 대조기능을 사용하여 비밀번호를 검증한다.
 
-                bcrypt.compare(memberpw, dbpwd)
-                // 검증이 완료되었을 경우 아래 코드를 실행한다.
-                .then((match) => {
-                    // 검증이 실패했을 경우 아래 코드를 실행하고 작동을 중지한다.
-                    if (!match) {
-                        res.json({ SystemMassage: "아이디 혹은 비밀번호가 일치하지 않습니다." });
-                    }
-                    // 검증이 성공했을 경우 아래 코드를 실행한다.
-                    else {
-                        // JWT.js에 만들어둔 토큰 생성 함수를 실행한다.
+                bcrypt.compare(memberpw, dbpwd, (err, same) => {
+                    if(same) {
                         const accessToken = createTokens(result[0]);
-                        
-                        // 생성된 토큰을 cookie에 담아 전송한다.
                         res.cookie("access-token", accessToken, {
-                            // cookie의 유효기간 설정.
                             maxAge: 60 * 60 * 24 * 30 * 1000,
-                            // 스크립트에 액세스 가능 설정. (허용 안함 (Http만))
                             httpOnly: true,
                         })
-
-                        // 그리고 완료 문구도 전송한다.
                         res.json({ SystemMassage: "로그인 완료!" });
                     }
+                    else {
+                        res.json({ SystemMassage: "아이디 혹은 비밀번호가 일치하지 않습니다." });
+                    }
                 })
-                // 검증 작업에 에러가 발생했을 경우 아래 코드를 실행하고 작동을 중지한다.
-                .catch(() => {
-                    res.json({ SystemMassage: "비밀번호 검증작업에서 에러가 발생하였습니다." });
-                })
+
+                // bcrypt.compare(memberpw, dbpwd)
+                // // 검증이 완료되었을 경우 아래 코드를 실행한다.
+                // .then((match) => {
+                //     // 검증이 실패했을 경우 아래 코드를 실행하고 작동을 중지한다.
+                //     if (!match) {
+                //         res.json({ SystemMassage: "아이디 혹은 비밀번호가 일치하지 않습니다." });
+                //     }
+                //     // 검증이 성공했을 경우 아래 코드를 실행한다.
+                //     else {
+                //         // JWT.js에 만들어둔 토큰 생성 함수를 실행한다.
+                //         const accessToken = createTokens(result[0]);
+                        
+                //         // 생성된 토큰을 cookie에 담아 전송한다.
+                //         res.cookie("access-token", accessToken, {
+                //             // cookie의 유효기간 설정.
+                //             maxAge: 60 * 60 * 24 * 30 * 1000,
+                //             // 스크립트에 액세스 가능 설정. (허용 안함 (Http만))
+                //             httpOnly: true,
+                //         })
+
+                //         // 그리고 완료 문구도 전송한다.
+                //         res.json({ SystemMassage: "로그인 완료!" });
+                //     }
+                // })
+                // // 검증 작업에 에러가 발생했을 경우 아래 코드를 실행하고 작동을 중지한다.
+                // .catch(() => {
+                //     res.json({ SystemMassage: "비밀번호 검증작업에서 에러가 발생하였습니다." });
+                // })
             }
         }
         // 그렇지 않으면 에러 문구를 출력하고 작업을 종료한다.
