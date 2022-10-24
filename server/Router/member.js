@@ -112,10 +112,7 @@ router.post("/login", (req, res) => {
                 const dbpwd = result[0].MEMBER_PW;
                 // DB에 저장된 비밀번호는 bcrypt에 의해 암호화된 상태로, 단순한 1:1 비교는 불가능하다.
                 // 그렇기에 bcrypt에 내장된 대조기능을 사용하여 비밀번호를 검증한다.
-                
-                const a = bcrypt.compare(memberpw, dbpwd);
-                console.log(a);
-                
+
                 bcrypt.compare(memberpw, dbpwd)
                 // 검증이 완료되었을 경우 아래 코드를 실행한다.
                 .then((match) => {
