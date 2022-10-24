@@ -1,15 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.25a89bf9.css",
-    "main.js": "/static/js/main.622ee3c4.js",
+    "main.css": "/static/css/main.ba1229be.css",
+    "main.js": "/static/js/main.ad533461.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/ja-jp.ttf": "/static/media/ja-jp.fa2c0472aeb2c33fa019.ttf",
+    "static/media/png-transparent-node-js-express-thumbnail.png": "/static/media/png-transparent-node-js-express-thumbnail.915b89629a5fefdb6ca0.png",
+    "static/media/mariadb_logo_icon_168996.png": "/static/media/mariadb_logo_icon_168996.93f48cf729ecf44a16c6.png",
+    "static/media/React-icon.svg.png": "/static/media/React-icon.svg.428c678238b80369a978.png",
     "index.html": "/index.html",
-    "main.25a89bf9.css.map": "/static/css/main.25a89bf9.css.map",
-    "main.622ee3c4.js.map": "/static/js/main.622ee3c4.js.map",
+    "main.ba1229be.css.map": "/static/css/main.ba1229be.css.map",
+    "main.ad533461.js.map": "/static/js/main.ad533461.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.25a89bf9.css",
-    "static/js/main.622ee3c4.js"
+    "static/css/main.ba1229be.css",
+    "static/js/main.ad533461.js"
   ]
 }
