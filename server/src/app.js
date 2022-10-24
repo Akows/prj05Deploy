@@ -1,10 +1,10 @@
 const express = require("express");
 const app = express();
 
-const member = require("./Router/member");
-const board = require("./Router/board");
-const todolist = require("./Router/todolist");
-const callapi = require("./Router/callapi");
+const member = require("../Router/member");
+const board = require("../Router/board");
+const todolist = require("../Router/todolist");
+const callapi = require("../Router/callapi");
 
 app.use(express.json());
 
