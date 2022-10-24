@@ -10,7 +10,9 @@ const { sign, verify } = require("jsonwebtoken");
 // member 정보를 매개변수로 받아 토큰을 생성하여 반환한다.
 const createTokens = (data) => {
     // 토큰을 생성, accessToken 변수에 담고 "jwtsecretplschange"의 이름으로 서버에 남겨둔다.
-    const accessToken = sign({ memberid: data.MEMBER_ID, memberpw: data.MEMBER_PW }, process.env.ACCESSTOKEN_SECRET_KEY);
+    const ab = process.env.ACCESSTOKEN_SECRET_KEY;
+
+    const accessToken = sign({ memberid: data.MEMBER_ID, memberpw: data.MEMBER_PW }, ab);
     
     // 생성한 토큰을 반환.
     return accessToken;
