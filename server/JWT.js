@@ -10,7 +10,7 @@ const { sign, verify } = require("jsonwebtoken");
 // member 정보를 매개변수로 받아 토큰을 생성하여 반환한다.
 const createTokens = (data) => {
     // 토큰을 생성, accessToken 변수에 담고 "jwtsecretplschange"의 이름으로 서버에 남겨둔다.
-    const accessToken = sign({ memberid: data.MEMBER_ID, memberpw: data.MEMBER_PW }, process.env.ACCESSTOKEN_SECRET_KEY);
+    const accessToken = sign({ memberid: data.MEMBER_ID, memberpw: data.MEMBER_PW }, 'process.env.ACCESSTOKEN_SECRET_KEY');
     
     // 생성한 토큰을 반환.
     return accessToken;
@@ -28,7 +28,7 @@ const validateToken = (req, res, next) => {
     // try-catch문, 코드 실행 중 에러가 발생하면 에러 코드문을 실행하고 작동을 종료한다.
     try {
         // Cookie에 담겨있는 토큰과 서버에서 생성했던 토큰을 비교하여 유효성을 검사한다.
-        const validToken = verify(accessToken, process.env.ACCESSTOKEN_SECRET_KEY);
+        const validToken = verify(accessToken, 'process.env.ACCESSTOKEN_SECRET_KEY');
 
         // 토큰이 유효할 경우, authenticated을 true로 바꾸고 함수를 종료한 뒤 이후 코드로 넘어가게 한다. 
         if (validToken) {
