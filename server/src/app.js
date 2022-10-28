@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const path = require('path');
 
 const member = require("../Router/member");
 const board = require("../Router/board");
@@ -10,9 +11,9 @@ app.use(express.json());
 
 app.use(express.static('build'));
 
-app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/build/index.html');
-});
+app.get('/*', (req, res) => {
+    res.sendFile(path.resolve(__dirname + '/build/index.html'))
+})
 
 app.use("/prj05/member", member);
 app.use("/prj05/board", board);
